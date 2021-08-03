@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { observer } from "mobx-react-lite";
+import "./App.css";
+import { NewToDo } from "./NewToDoItem";
+import { ToDoItem } from "./ToDoItem";
+import { toDoStore } from "./toDoStore";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h4>
+        Completed: {toDoStore.completedCount}/{toDoStore.todos.length}
+      </h4>
+      <NewToDo />
+      {toDoStore.todos.map((toDo) => (
+        <ToDoItem key={toDo.id} toDo={toDo} />
+      ))}
     </div>
   );
 }
 
-export default App;
+export default observer(App);
