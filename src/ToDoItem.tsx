@@ -25,7 +25,6 @@ export function ToDoItem({ toDo: { id, text, completed } }: Props) {
       ) : (
         <span>{text}</span>
       )}
-      <button onClick={() => toDoStore.removeToDo(id)}>Delete</button>
       {editable ? (
         <>
           <button
@@ -40,7 +39,10 @@ export function ToDoItem({ toDo: { id, text, completed } }: Props) {
           <button onClick={() => setEditable(false)}>Cancel</button>
         </>
       ) : (
-        <button onClick={() => setEditable(true)}>Edit</button>
+        <>
+          <button onClick={() => setEditable(true)}>Edit</button>
+          <button onClick={() => toDoStore.removeToDo(id)}>Delete</button>
+        </>
       )}
     </div>
   );
