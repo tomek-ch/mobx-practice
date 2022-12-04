@@ -12,6 +12,19 @@
   padding: 1em;
 }
 
+button {
+  font-size: inherit;
+  background-color: inherit;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  transition: all 150ms;
+}
+
+button:hover {
+  border-color: gray;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
